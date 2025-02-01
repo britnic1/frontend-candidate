@@ -1,0 +1,23 @@
+@import './styles/colors';
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $primary;
+    color: $white;
+    font-weight: 600;
+    padding: 15px 25px;
+
+    img {
+        height: 70px;
+    }
+
+    span {
+        text-transform: uppercase;
+    }
+}
+
+.content {
+    margin: 25px 35px;
+}

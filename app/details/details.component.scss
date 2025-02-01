@@ -1,0 +1,25 @@
+section {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+        margin-bottom: 5px;
+    }
+
+    // .container__quotes {
+    //     display: grid;
+    //     grid-template-columns: repeat(3, 1fr);
+    //     justify-items: start;
+    //     column-gap: 50px;
+    // }
+
+    p {
+        margin-top: 5px;
+
+        small {
+            display: block;
+            color: #0a596f;
+            font-weight: bolder;
+        }
+    }
+}

@@ -1,0 +1,70 @@
+main,
+.container,
+form {
+    display: flex;
+}
+
+h4 {
+    margin-bottom: 10px;
+}
+
+main {
+    flex-direction: column;
+    gap: 20px;
+
+    .container {
+        flex-direction: column;
+
+        form {
+            gap: 8px;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+
+            input,
+            select {
+                padding: 8px;
+                border-radius: 4px;
+                border: 1px solid #bababa;
+                color: #0c0c0c;
+            }
+
+            input {
+                flex-grow: 2;
+            }
+
+            select {
+                max-height: 41px;
+                flex-grow: 1;
+            }
+
+            option {
+                color: #0c0c0c;
+            }
+        }
+
+        small {
+            color: red;
+        }
+    }
+
+    .search {
+        max-width: 50%;
+    }
+
+    .results {
+        flex-direction: row;
+        gap: 30px;
+
+        .container__results--no-results {
+            text-align: center;
+        }
+
+        .results__result-card {
+            border: 1px solid #ddd;
+            padding: 50px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    }
+}

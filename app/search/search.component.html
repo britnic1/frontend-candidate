@@ -1,0 +1,36 @@
+<main>
+	<section class="container search">
+		<ng-container *ngIf="!getSearchFormValidity(); else searchInstructions">
+			<h4>&nbsp;</h4>
+		</ng-container>
+		<ng-template #searchInstructions>
+			<h4>Please enter either a name or color in order to search.</h4>
+		</ng-template>
+
+		<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+			<input formControlName="name" placeholder="Search by name" type="text" (keydown.enter)="onSubmit()">
+			<select formControlName="color" aria-placeholder="Select">
+				<option *ngFor="let color of colorOptions" [value]="color.value">{{ color.display }}</option>
+			</select>
+			<button type="submit" [disabled]="searchForm.invalid || getSearchFormValidity()">
+				<span>Search</span>
+			</button>
+		</form>
+		<small *ngIf="searchForm.get('name')?.errors?.['pattern']">
+			Name is invalid, only alphabetical characters are allowed
+		</small>
+	</section>
+	<section *ngIf="searchPerformed$ | async">
+		<ng-container *ngIf="results.length > 0; else noResults">
+			<h2>{{ results.length }} Result<span *ngIf="results.length > 1">s</span> for {{ searchParameters }}</h2>
+			<div class="container results">
+				<div class="results__result-card" *ngFor="let result of results" (click)="goToPersonDetail(result.id)">
+					{{ result.name }}
+				</div>
+			</div>
+		</ng-container>
+		<ng-template #noResults>
+			<h2 class="container__results--no-results">{{ resultsMessage }}</h2>
+		</ng-template>
+	</section>
+</main>

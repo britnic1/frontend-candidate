@@ -1,0 +1,20 @@
+<main>
+	<h4><button (click)="goToSearchResults()">Back to search results</button></h4>
+    <section *ngIf="person">
+		<h2>{{ person.name }}</h2>
+
+		<h3>Favorite Color: <span [ngStyle]="{ 'color': person.favorite_color }">{{ person.favorite_color | capitalizeFirst }}</span></h3>
+
+		<ng-container *ngIf="person.quotes && hasQuotes(); else noQuotes">
+			<h3>Quotes</h3>
+			<div *ngFor="let likes of sortedLikes()" class="container__quotes">
+				<p *ngFor="let quote of person.quotes[likes]">
+					&ldquo;{{ quote }}&rdquo; <small>{{ likes }} Like<span *ngIf="category !== '1'">s</span></small>
+				</p>
+			</div>
+		</ng-container>
+		<ng-template #noQuotes>
+			<h4>No favorite quotes.</h4>
+		</ng-template>
+    </section>
+</main>
