@@ -1,11 +1,82 @@
 @import './app/styles/colors';
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 16px;
     color: $darkGrey;
     margin: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.container,
+input,
+select,
+button {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    height: 41px;
+    padding: 6px 30px;
+    background: #F26C1E;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 2px 2px 4px #ddd;
+    color: white;
+    text-transform: uppercase;
+    transition: all 0.5s;
+
+    span {
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: -1px;
+        right: -10px;
+        transition: 0.5s;
+    }
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:hover span {
+    padding-right: 15px;
+}
+
+button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+button:disabled {
+    background: #999;
+    color: #ccc;
+
+    span {
+        transition: none;
+    }
+
+    span:after {
+        display: none;
+        transition: none;
+    }
+}
+
+button:disabled:hover {
+    cursor: default;
+    transition: none;
+
+    span {
+        padding-right: 0;
+    }
 }
